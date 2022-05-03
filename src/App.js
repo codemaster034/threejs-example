@@ -15,9 +15,12 @@ function App() {
   document.body.appendChild( renderer.domElement );
 
   const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+  const material = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
   const cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
+  
+  const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+  scene.add(light);
 
   camera.position.z = 5;
 
